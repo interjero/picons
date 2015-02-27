@@ -1,0 +1,29 @@
+Source: picons
+Section: video
+Priority: extra
+Maintainer: #MAINTAINER#
+Build-Depends: debhelper (>= 8.0.0), language-pack-en
+Standards-Version: 3.9.3
+Homepage: https://github.com/AndreyPavlenko/picons
+
+Package: picons-tv-ru
+Architecture: all
+Description: Russian tv channel icons
+
+Package: picons-radio-ru
+Architecture: all
+Description: Russian radio station icons
+
+Package: picons-tv-ua
+Architecture: all
+Description: Ukrainian tv channel icons
+
+Package: picons-tv-fr
+Architecture: all
+Description: French tv channel icons
+
+Package: vdr-plugin-xvdr-picons-36e
+Architecture: all
+Depends: picons-tv-ru, picons-radio-ru
+Recommends: picons-tv-ua, picons-tv-fr
+Description: XVDR icons for Eutelsat W4/W7 36E

@@ -1,0 +1,15 @@
+#!/usr/bin/make -f
+
+%:
+	LC_ALL=en_US.UTF-8 dh ${@}
+
+override_dh_installdocs:
+
+override_dh_installchangelogs:
+
+# Overriding dh_link because it does not handle spaces in file names properly
+override_dh_link:
+	for i in "$(CURDIR)/debian/"*.links; do \
+	p=$$(basename "$$i"); p="$${p%.links}" \
+	d="$(CURDIR)/debian/$$p"; [ -d "$$d" ] || mkdir -p "$$d"; cd "$$d"; \
+	xargs -L 1 sh -c 'mkdir -p "$$(dirname "$$2")"; ln -s "$$1" "$$2"' ln < "$$i"; done
